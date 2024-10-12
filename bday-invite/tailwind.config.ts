@@ -58,6 +58,13 @@ const config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      backgroundImage: {
+        "sewers":"url('/sewers.jpg')",
+        "ship":"url('/ship.jpg')",
+        "cantina":"url('/cantina.jpg')",
+        "cantina-lime":"url('/cantina-lime.jpg')",
+        "cantina-orange":"url('/cantina-orange.jpg')",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
