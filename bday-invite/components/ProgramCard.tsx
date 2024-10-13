@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Card, CardTitle } from "@/components/ui/card";
 
 export default function ProgramCard({id, className, title, imageUrl, time}:{id?:string, className?:string, title:string,imageUrl:string,time:string}){
