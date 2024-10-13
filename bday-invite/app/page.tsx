@@ -1,3 +1,4 @@
+import Counter from "@/components/Counter";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
@@ -7,8 +8,7 @@ export default function Home() {
       <div className="bg-cantina bg-cover bg-center fixed -z-100 w-full h-full blur-sm"></div>
       <div className="grid grid-rows-12 grid-cols-12 h-[100dvh] w-[100vw]">
         <div className="relative col-start-4 col-end-10 row-span-3">
-          <Card className="text-center text-3xl bg-[#FFCC00]">0d 00h 00m 00s</Card>
-          <Card className="text-center w-3/4 m-auto text-2xl bg-[#FFFFDD]">9 Listopada 2024</Card>
+          <Counter date={new Date("2024-11-09")}/>
         </div>
         <div className="relative col-start-1 col-end-4 row-start-2 row-end-6 text-center">
           <div className="absolute bottom-full inset-x-0 m-auto text-white text-center">Tu zaczynamy:</div>
