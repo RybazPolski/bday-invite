@@ -1,5 +1,3 @@
-import Image from "next/image"
-
 export default function BackgroundImage({team, quest}:{team?:"orange"|"lime"|undefined,quest?:"accepted"|"denied"|undefined}){
     return (
         <div

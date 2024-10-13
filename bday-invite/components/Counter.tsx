@@ -17,31 +17,33 @@ export default function Counter({date}:{date:Date}){
     const [timeLeft,setTimeLeft] = useState<TimeLeft>(INITIAL_TIME_LEFT)
     
     useEffect(() => {
-        setTimeLeft(calculateTimeLeft())
 
+        function calculateTimeLeft() : TimeLeft {
+            let timeLeft = {};
+            const currentDate = new Date();
+            const difference = date.getTime() - currentDate.getTime();
+    
+            if (difference > 0) {
+                timeLeft = {
+                    days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+                    hrs: Math.floor((difference / (1000 * 60 * 60)) % 24),
+                    mins: Math.floor((difference / 1000 / 60) % 60),
+                    secs: Math.floor((difference / 1000) % 60)
+                }
+            }
+    
+            return timeLeft;
+        }
+
+        setTimeLeft(calculateTimeLeft())
+        
         const timer = setInterval(() => {
             setTimeLeft(calculateTimeLeft())
         }, 1000)
 
         return () => clearInterval(timer);
-    }, [])
+    }, [date])
 
-    function calculateTimeLeft() : TimeLeft {
-        let timeLeft = {};
-        let currentDate = new Date();
-        let difference = date.getTime() - currentDate.getTime();
-
-        if (difference > 0) {
-            timeLeft = {
-                days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-                hrs: Math.floor((difference / (1000 * 60 * 60)) % 24),
-                mins: Math.floor((difference / 1000 / 60) % 60),
-                secs: Math.floor((difference / 1000) % 60)
-            }
-        }
-
-        return timeLeft;
-    }
     
     return (
         <>
