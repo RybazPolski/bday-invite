@@ -4,11 +4,11 @@ export default function BackgroundImage({team, quest}:{team?:"orange"|"lime"|und
     return (
         <Image 
             className="fixed -z-100 w-full h-full blur-sm"
-            src={`/${quest=="accepted"?`cantina${team==undefined?"":"-"+team}`:quest=="denied"?"ship":"sewers"}.jpg`}
+            src={`/backgrounds/${quest=="accepted"?`cantina${team==undefined?"":"-"+team}`:quest=="denied"?"ship":"sewers"}.jpg`}
             layout="fill"
             objectFit="cover"
             objectPosition="center"
-            alt={`${quest=="accepted"?`cantina-lime`:"sewers"} background`}
+            alt={`${quest=="accepted"?`cantina${team==undefined?"":"-"+team}`:quest=="denied"?"ship":"sewers"} background`}
         />
     )
 }
