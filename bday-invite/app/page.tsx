@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import Image from "next/image";
 
 export default function Home() {
   return (
@@ -16,7 +15,7 @@ export default function Home() {
           <Card className="absolute bottom-0 inset-x-0 h-full aspect-[5/4] bg-[url('https://wiki.openstreetmap.org/w/images/thumb/6/69/Baclaran_and_Pasay_Rotunda_-_in_Standard_map_layer.png/250px-Baclaran_and_Pasay_Rotunda_-_in_Standard_map_layer.png')] bg-cover bg-center m-auto"></Card>
         </div>
         <div className="relative col-start-4 col-end-9 row-start-4 row-end-8">
-          <h1 className="text-3xl font-bold italic text-white">&lt;Nickname&gt;, we've got a&nbsp;quest for you!</h1>
+          <h1 className="text-3xl font-bold italic text-white">&lt;Nickname&gt;, we&apos;ve got a&nbsp;quest for you!</h1>
         </div>
         <div className="relative col-start-2 col-end-4 row-start-7 row-end-11">
         <Card id="questThumb" className="h-full aspect-square bg-[url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5e3ccc22-bd54-4a4d-9b30-0fe3538da5ab/dbuvk4o-35a25bf5-6a65-425f-9698-82e08e85f057.jpg/v1/fit/w_800,h_655,q_70,strp/bounty_listing_by_markbulahao_dbuvk4o-414w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjU1IiwicGF0aCI6IlwvZlwvNWUzY2NjMjItYmQ1NC00YTRkLTliMzAtMGZlMzUzOGRhNWFiXC9kYnV2azRvLTM1YTI1YmY1LTZhNjUtNDI1Zi05Njk4LTgyZTA4ZTg1ZjA1Ny5qcGciLCJ3aWR0aCI6Ijw9ODAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.cIMGuhthZ1mNx26osRf32CLhZUCTUVN5sDcm6ZCorqs')] bg-cover bg-center m-auto text-center align-middle text-white font-semibold text-2xl">Quest</Card>
@@ -31,7 +30,7 @@ export default function Home() {
           <div className="my-auto text-center text-2xl text-white">18:45</div>
         </div>
         <div className="relative col-start-1 col-end-7 row-start-12 row-end-13">
-          <h3 className="text-center text-xl overflow-show text-white text-nowrap">Motyw imperzy: "I'm ready for the quest!"</h3>
+          <h3 className="text-center text-xl overflow-show text-white text-nowrap">Motyw imperzy: &quot;I&apos;m ready for the quest!&quot;</h3>
         </div>
         <div className="relative col-start-10 col-end-13 row-start-6 row-end-10">
           <div className="bg-[url('https://freepngimg.com/save/99099-apex-legends-png-download-free/920x786')] bg-cover bg-top w-full h-full"></div>
