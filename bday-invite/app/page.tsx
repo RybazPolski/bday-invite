@@ -1,3 +1,4 @@
+import BackgroundImage from "@/components/BackgroundImage";
 import Counter from "@/components/Counter";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -5,7 +6,7 @@ import { Card } from "@/components/ui/card";
 export default function Home() {
   return (
     <>
-      <div className="bg-cantina bg-cover bg-center fixed -z-100 w-full h-full blur-sm"></div>
+      <BackgroundImage quest={undefined} team={undefined}/>
       <div className="grid grid-rows-12 grid-cols-12 h-[100dvh] w-[100vw]">
         <div className="relative col-start-4 col-end-10 row-span-3">
           <Counter date={new Date("2024-11-09")}/>
