@@ -19,4 +19,4 @@ jobs:
         username: epiz_31193062
         password: ${{ secrets.ftp_password }}
         local-dir: ./backend/
-        server-dir: /htdocs/bday-invite
+        server-dir: /htdocs/bday-invite/
