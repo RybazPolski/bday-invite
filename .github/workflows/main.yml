@@ -1,4 +1,7 @@
-on: push
+on: 
+  push:
+    branches:
+      - 'main'
 name: 🚀 Deploy website on push
 jobs:
   web-deploy:
@@ -15,5 +18,5 @@ jobs:
         port: 21
         username: epiz_31193062
         password: ${{ secrets.ftp_password }}
-        local-dir: ./backend
+        local-dir: ./backend/
         server-dir: /htdocs/bday-invite
