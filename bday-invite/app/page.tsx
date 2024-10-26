@@ -4,7 +4,6 @@ import Counter from "@/components/Counter";
 import DressCode from "@/components/DressCode";
 import Header from "@/components/Header";
 import ProgramCard from "@/components/ProgramCard";
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
 export default function Home() {
@@ -23,19 +22,19 @@ export default function Home() {
           <Header nickname="&lt;Nickname&gt;"></Header>
         </div>
         <div className="relative col-start-2 col-end-4 row-start-7 row-end-11">
-          <ProgramCard id="questThumb" title="Quest" imageUrl="/quest/01.jpg" time="16:00"/>
+          <ProgramCard id="questThumb" rv="Alpha" title="Quest" imageUrl="/quest/01.jpg" time="16:00"/>
         </div>
         <div className="relative col-start-7 col-end-9 row-start-8 row-end-12">
-          <ProgramCard className="relative -top-3" id="laserarenaThumb" title="Lasertag" imageUrl="/laserarena/01.jpg" time="17:00"/>
+          <ProgramCard className="relative -top-3" id="laserarenaThumb" rv="Beta" title="Lasertag" imageUrl="/laserarena/01.jpg" time="17:00"/>
         </div>
         <div className="relative col-start-10 col-end-12 row-start-2 row-end-6">
-          <ProgramCard className="relative -top-[4vh] left-[4vw]" id="partyhouseThumb" title="Lokal" imageUrl="/partyhouse/salon/01.jpg" time="18:45"/>
+          <ProgramCard className="relative -top-[4vh] left-[4vw]" id="partyhouseThumb" rv="Gamma" title="Lokal" imageUrl="/partyhouse/salon/01.jpg" time="18:45"/>
         </div>
         <div className="relative col-start-1 col-end-7 row-start-12 row-end-13">
           <DressCode />
         </div>
         <div className="relative col-start-10 col-end-13 row-start-6 row-end-10">
-          <div className="bg-[url('https://freepngimg.com/save/99099-apex-legends-png-download-free/920x786')] bg-cover bg-top w-full h-full"></div>
+          <div className="bg-[url('/jnj.png')] bg-cover bg-center w-full h-full"></div>
           {/* <h1 className="text-center text-3xl">Jubilarians</h1> */}
         </div>
         <div className="relative col-start-9 col-end-13 row-start-10 row-end-12 inline-flex justify-end">

@@ -64,6 +64,7 @@ const config = {
         "cantina":"url('/cantina.jpg')",
         "cantina-lime":"url('/cantina-lime.jpg')",
         "cantina-orange":"url('/cantina-orange.jpg')",
+        "jnj":"url('/jnj.png')",
       },
       keyframes: {
         "accordion-down": {

@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { Card, CardTitle } from "@/components/ui/card";
 
-export default function ProgramCard({id, className, title, imageUrl, time}:{id?:string, className?:string, title:string,imageUrl:string,time:string}){
+export default function ProgramCard({id, className, title, rv, imageUrl, time}:{id?:string, className?:string, title:string, rv:string; imageUrl:string,time:string}){
     return (
         <>
             <span className={className}>
@@ -14,6 +14,7 @@ export default function ProgramCard({id, className, title, imageUrl, time}:{id?:
                                 rounded-lg bg-slate-950  backdrop-blur-3xl`}
                             title={title}
                             >
+                                <span className="text-lg">RV {rv}:</span>
                                 <CardTitle>{title}</CardTitle>
                             </Card>
                     </span>
