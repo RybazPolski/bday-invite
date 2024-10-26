@@ -1,4 +1,5 @@
 import BackgroundImage from "@/components/BackgroundImage";
+import Confirm from "@/components/Confirm";
 import Counter from "@/components/Counter";
 import DressCode from "@/components/DressCode";
 import Header from "@/components/Header";
@@ -38,7 +39,7 @@ export default function Home() {
           {/* <h1 className="text-center text-3xl">Jubilarians</h1> */}
         </div>
         <div className="relative col-start-9 col-end-13 row-start-10 row-end-12 inline-flex justify-end">
-          <Button className="text-center text-xl h-full text-black bg-[#FFFF00]">Potwierdź obecność</Button>
+          <Confirm />
         </div>
         <div className="relative col-start-9 col-end-13 row-start-12 row-end-13 ">
           <h1 className="text-center text-xl underline text-white ">&#9432; Więcej informacji</h1>
