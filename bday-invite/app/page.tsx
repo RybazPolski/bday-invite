@@ -1,5 +1,5 @@
 import BackgroundImage from "@/components/BackgroundImage";
-import Confirm from "@/components/Confirm";
+import { ConfirmSheet } from "@/components/ConfirmSheet";
 import Counter from "@/components/Counter";
 import DressCode from "@/components/DressCode";
 import Header from "@/components/Header";
@@ -12,7 +12,7 @@ export default function Home() {
       <BackgroundImage quest={undefined} team={undefined}/>
       <div className="grid grid-rows-12 grid-cols-12 h-[100dvh] w-[100vw]">
         <div className="relative col-start-4 col-end-10 row-span-3">
-          <Counter date={new Date("2024-11-09")}/>
+          <Counter date={new Date("2024-11-09 16:00")}/>
         </div>
         <div className="relative col-start-1 col-end-4 row-start-2 row-end-6 text-center">
           <div className="absolute bottom-full inset-x-0 m-auto text-white text-center">Tu zaczynamy:</div>
@@ -38,7 +38,7 @@ export default function Home() {
           {/* <h1 className="text-center text-3xl">Jubilarians</h1> */}
         </div>
         <div className="relative col-start-9 col-end-13 row-start-10 row-end-12 inline-flex justify-end">
-          <Confirm />
+          <ConfirmSheet />
         </div>
         <div className="relative col-start-9 col-end-13 row-start-12 row-end-13 ">
           <h1 className="text-center text-xl underline text-white ">&#9432; Więcej informacji</h1>

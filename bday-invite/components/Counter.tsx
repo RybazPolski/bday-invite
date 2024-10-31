@@ -49,7 +49,7 @@ export default function Counter({date}:{date:Date}){
         <>
             <div className="block mx-auto text-center text-3xl text-fuchsia-300 border-b-[9.5vh] border-b-stone-950 border-x-[25px] border-x-transparent h-0 w-11/12 rotate-180">
                 <span className="absolute rotate-180 w-full text-center left-1/2 -translate-x-1/2 ">
-                    {timeLeft?.days}d {("0"+timeLeft?.hrs).slice(-2)}h {("0"+timeLeft?.mins).slice(-2)}m {("0"+timeLeft?.secs).slice(-2)}s
+                    {(timeLeft?.days+"").replace('undefined','0')}d {("0"+timeLeft?.hrs).slice(-2).replace('ed','00')}h {("0"+timeLeft?.mins).slice(-2).replace('ed','00')}m {("0"+timeLeft?.secs).slice(-2).replace('ed','00')}s
                 </span>
             </div>
             <div className="block mx-auto text-center text-2xl text-cyan-200 border-b-[8vh] border-b-stone-800 border-x-[25px] border-x-transparent h-0 w-8/12 rotate-180">
