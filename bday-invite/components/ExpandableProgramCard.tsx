@@ -3,7 +3,6 @@ import Image from "next/image";
 import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
-import ProgramCard from "./ProgramCard";
 import { ProgramPoint } from "@/model/ProgramPoint";
 
 export default function ExpandableProgramPoint({children, triggerClassname, programPoint}:{children:React.ReactNode, triggerClassname?: string, programPoint:ProgramPoint}) {
