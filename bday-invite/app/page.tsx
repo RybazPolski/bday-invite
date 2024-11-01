@@ -1,46 +1,110 @@
-import { Button } from "@/components/ui/button";
+import BackgroundImage from "@/components/BackgroundImage";
+import { ConfirmSheet } from "@/components/ConfirmSheet";
+import Counter from "@/components/Counter";
+import DressCode from "@/components/DressCode";
+import Header from "@/components/Header";
+import ProgramCard from "@/components/ProgramCard";
 import { Card } from "@/components/ui/card";
+import { PartyhouseModal } from "@/components/PartyhouseModal";
+import { BedIcon, CakeIcon,  DicesIcon, PizzaIcon, ShowerHeadIcon } from "lucide-react";
+import ExpandableProgramPoint from "@/components/ExpandableProgramCard";
+import { MoreInfoModal } from "@/components/MoreInfoModal";
 
 export default function Home() {
+  
+
+  const programPointQuest = {
+    imageUrl: "/quest/01.jpg", title: "Quest", rv: "Alpha", time: "16:00", address: "Poznań, nad przystankiem Piaśnicka\uFEFF/\uFEFFKurlandzka", description: "", content: 
+    (<>
+      <i>&quot;Imiona i nazwiska: nieznane, zdjęcia: brak, cechy wyróżniające: nieznane, ostatnie lokalizacje: Oba cele przebywają ukryte wśród aktywnych w regionie NANZOP drużyn łowców nagród. Los chciał, by te drużyny szukały właśnie ich...&quot;</i>
+    </>),
+  }
+
+  const programPointLaserarena = {
+    imageUrl: "/laserarena/01.jpg", title: "Lasertag", rv: "Beta", time: "17:00", address: "Poznań, Fort IIa", description: "", content: 
+    (<>
+      Podzielimy się na dwie pary drużyn i zagramy dwie gry po ok. 30minut. Jeżeli się uda, wbijemy wcześniej, aby przejść szkolenie już przed 17:00 i nie tracić czasu gry ;)
+    </>),
+  }
+
+  const programPointPartyhouse = {
+    imageUrl: "/partyhouse/salon/01.jpg", title: "Lokal", rv: "Gamma", time: "18:45", address: "Poznań, ul. Za Bramką 12A", description:  "", content: (<>
+      <div className="flex  items-center justify-center">
+        <CakeIcon className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+          <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+            Wszamanie torta
+          </span>
+        </div>
+        <div className="flex  items-center justify-center">
+          <PizzaIcon className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+          <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+            Pizza
+          </span>
+        </div>
+        <div className="flex items-center justify-center">
+          <DicesIcon className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+          <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+            Towarzyski wieczór z gierami
+          </span>
+        </div>
+        <div className="flex items-center justify-center">
+          <BedIcon className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+          <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+            Nocleg
+          </span>
+        </div>
+        <div className="flex items-center justify-center">
+          <ShowerHeadIcon className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+          <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+            Prysznice
+          </span>
+        </div>
+    </>),
+  }
+  
   return (
-    <>
-      <div className="bg-cantina bg-cover bg-center fixed -z-100 w-full h-full blur-sm"></div>
+    <>    
+      <BackgroundImage quest={undefined} team={undefined}/>
       <div className="grid grid-rows-12 grid-cols-12 h-[100dvh] w-[100vw]">
         <div className="relative col-start-4 col-end-10 row-span-3">
-          <Card className="text-center text-3xl bg-[#FFCC00]">0d 00h 00m 00s</Card>
-          <Card className="text-center w-3/4 m-auto text-2xl bg-[#FFFFDD]">9 Listopada 2024</Card>
+          <Counter date={new Date("2024-11-09 16:00")}/>
         </div>
         <div className="relative col-start-1 col-end-4 row-start-2 row-end-6 text-center">
           <div className="absolute bottom-full inset-x-0 m-auto text-white text-center">Tu zaczynamy:</div>
-          <Card className="absolute bottom-0 inset-x-0 h-full aspect-[5/4] bg-[url('https://wiki.openstreetmap.org/w/images/thumb/6/69/Baclaran_and_Pasay_Rotunda_-_in_Standard_map_layer.png/250px-Baclaran_and_Pasay_Rotunda_-_in_Standard_map_layer.png')] bg-cover bg-center m-auto"></Card>
+          <a target="_blank" href="https://maps.app.goo.gl/zwYAKSw6jk6Rsc4Z6"><Card className="absolute bottom-0 inset-x-0 h-full aspect-[5/4] bg-[url('/map.jpg')] bg-cover bg-center m-auto"/></a>
         </div>
         <div className="relative col-start-4 col-end-9 row-start-4 row-end-8">
-          <h1 className="text-3xl font-bold italic text-white">&lt;Nickname&gt;, we&apos;ve got a&nbsp;quest for you!</h1>
+          <Header nickname="&lt;Nickname&gt;"></Header>
         </div>
         <div className="relative col-start-2 col-end-4 row-start-7 row-end-11">
-        <Card id="questThumb" className="h-full aspect-square bg-[url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5e3ccc22-bd54-4a4d-9b30-0fe3538da5ab/dbuvk4o-35a25bf5-6a65-425f-9698-82e08e85f057.jpg/v1/fit/w_800,h_655,q_70,strp/bounty_listing_by_markbulahao_dbuvk4o-414w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjU1IiwicGF0aCI6IlwvZlwvNWUzY2NjMjItYmQ1NC00YTRkLTliMzAtMGZlMzUzOGRhNWFiXC9kYnV2azRvLTM1YTI1YmY1LTZhNjUtNDI1Zi05Njk4LTgyZTA4ZTg1ZjA1Ny5qcGciLCJ3aWR0aCI6Ijw9ODAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.cIMGuhthZ1mNx26osRf32CLhZUCTUVN5sDcm6ZCorqs')] bg-cover bg-center m-auto text-center align-middle text-white font-semibold text-2xl">Quest</Card>
-        <div className="my-auto text-center text-2xl text-white">16:00</div>
+          <ExpandableProgramPoint triggerClassname="h-[35dvh]" programPoint={programPointQuest}>
+            <ProgramCard programPoint={programPointQuest}/>
+          </ExpandableProgramPoint>
         </div>
         <div className="relative col-start-7 col-end-9 row-start-8 row-end-12">
-          <Card id="lasertagThumb" className="h-full aspect-square bg-[url('https://lh3.googleusercontent.com/p/AF1QipN1QuDp_VHkD8OTdkMVSwXz-XSM0srNiEGKh1NY=s1360-w1360-h1020')] bg-cover bg-center m-auto text-center align-middle text-white font-semibold text-2xl">Lasertag</Card>
-          <div className="my-auto text-center text-2xl text-white">17:00</div>
+          <ExpandableProgramPoint triggerClassname="relative -top-3 h-[35dvh]" programPoint={programPointLaserarena}>
+            <ProgramCard className="h-full" programPoint={programPointLaserarena}/>
+          </ExpandableProgramPoint>
         </div>
         <div className="relative col-start-10 col-end-12 row-start-2 row-end-6">
-          <Card id="lokalThumb" className="h-full aspect-square bg-[url('https://party-poznan.pl/wp-content/uploads/2021/09/partyhouse_01-27.jpg')] bg-cover bg-center m-auto text-center align-middle text-white font-semibold text-2xl">Lokal</Card>
-          <div className="my-auto text-center text-2xl text-white">18:45</div>
+          <PartyhouseModal triggerClassname="relative -top-[4vh] left-[4vw] aspect-square h-[35dvh] px-0 py-0 overflow-visible" programPoint={programPointPartyhouse}>
+            <ProgramCard className="h-full" programPoint={programPointPartyhouse}/>
+          </PartyhouseModal>
         </div>
         <div className="relative col-start-1 col-end-7 row-start-12 row-end-13">
-          <h3 className="text-center text-xl overflow-show text-white text-nowrap">Motyw imperzy: &quot;I&apos;m ready for the quest!&quot;</h3>
+          <DressCode />
         </div>
         <div className="relative col-start-10 col-end-13 row-start-6 row-end-10">
-          <div className="bg-[url('https://freepngimg.com/save/99099-apex-legends-png-download-free/920x786')] bg-cover bg-top w-full h-full"></div>
+          <div className="bg-[url('/jnj.png')] bg-cover bg-center w-full h-full"></div>
           {/* <h1 className="text-center text-3xl">Jubilarians</h1> */}
         </div>
         <div className="relative col-start-9 col-end-13 row-start-10 row-end-12 inline-flex justify-end">
-          <Button className="text-center text-xl h-full text-black bg-[#FFFF00]">Potwierdź obecność</Button>
+          <ConfirmSheet />
         </div>
         <div className="relative col-start-9 col-end-13 row-start-12 row-end-13 ">
-          <h1 className="text-center text-xl underline text-white ">&#9432; Więcej informacji</h1>
+          <MoreInfoModal>
+            <h1 className="text-center text-xl underline text-white cursor-pointer">&#9432; Więcej informacji</h1>
+          </MoreInfoModal>
         </div>
       </div>
     </>
