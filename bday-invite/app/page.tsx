@@ -7,20 +7,21 @@ import ProgramCard from "@/components/ProgramCard";
 import { Card } from "@/components/ui/card";
 import { PartyhouseModal } from "@/components/PartyhouseModal";
 import { BedIcon, CakeIcon,  DicesIcon, PizzaIcon, ShowerHeadIcon } from "lucide-react";
+import ExpandableProgramPoint from "@/components/ExpandableProgramCard";
 
 export default function Home() {
   
 
   const programPointQuest = {
-    title: "Quest", rv: "Alpha", time: "16:00", address: "Poznań, przystanek ", description: (<></>),
+    imageUrl: "/quest/01.jpg", title: "Quest", rv: "Alpha", time: "16:00", address: "Poznań, przystanek ", description: "", content: (<></>),
   }
 
   const programPointLaserarena = {
-    title: "Lasertag", rv: "Beta", time: "17:00", address: "Poznań, Fort IIa", description: (<></>),
+    imageUrl: "/laserarena/01.jpg", title: "Lasertag", rv: "Beta", time: "17:00", address: "Poznań, Fort IIa", description: "", content: (<></>),
   }
 
   const programPointPartyhouse = {
-    title: "Lokal", rv: "Gamma", time: "18:45", address: "Poznań, ul. Za Bramką 12A", description: (<>
+    imageUrl: "/partyhouse/salon/01.jpg", title: "Lokal", rv: "Gamma", time: "18:45", address: "Poznań, ul. Za Bramką 12A", description:  "", content: (<>
       <div className="flex  items-center justify-center">
         <CakeIcon className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
           <span className="text-neutral-700 dark:text-neutral-300 text-sm">
@@ -69,14 +70,18 @@ export default function Home() {
           <Header nickname="&lt;Nickname&gt;"></Header>
         </div>
         <div className="relative col-start-2 col-end-4 row-start-7 row-end-11">
-          <ProgramCard imageUrl="/quest/01.jpg" programPoint={programPointQuest}/>
+          <ExpandableProgramPoint triggerClassname="h-[35dvh]" programPoint={programPointQuest}>
+            <ProgramCard programPoint={programPointQuest}/>
+          </ExpandableProgramPoint>
         </div>
         <div className="relative col-start-7 col-end-9 row-start-8 row-end-12">
-          <ProgramCard className="relative -top-3" imageUrl="/laserarena/01.jpg" programPoint={programPointLaserarena}/>
+          <ExpandableProgramPoint triggerClassname="relative -top-3 h-[35dvh]" programPoint={programPointLaserarena}>
+            <ProgramCard className="h-full" programPoint={programPointLaserarena}/>
+          </ExpandableProgramPoint>
         </div>
         <div className="relative col-start-10 col-end-12 row-start-2 row-end-6">
-        <PartyhouseModal triggerClassname="relative -top-[4vh] left-[4vw] aspect-square h-[30vh] px-0 py-0 overflow-visible" programPoint={programPointPartyhouse}>
-            <ProgramCard className="h-full" imageUrl="/partyhouse/salon/01.jpg" programPoint={programPointPartyhouse}/>
+          <PartyhouseModal triggerClassname="relative -top-[4vh] left-[4vw] aspect-square h-[35dvh] px-0 py-0 overflow-visible" programPoint={programPointPartyhouse}>
+            <ProgramCard className="h-full" programPoint={programPointPartyhouse}/>
           </PartyhouseModal>
         </div>
         <div className="relative col-start-1 col-end-7 row-start-12 row-end-13">

@@ -83,7 +83,7 @@ export function PartyhouseModal({children, triggerClassname, programPoint}:{chil
               ))}
             </div>
             <div className="py-5 flex flex-wrap gap-x-4 gap-y-2 items-start justify-start max-w-sm mx-auto">
-              {programPoint.description}
+              {programPoint.content}
             </div>
           </ModalContent>
         </ModalBody>
