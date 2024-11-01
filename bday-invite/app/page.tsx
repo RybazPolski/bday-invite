@@ -65,7 +65,7 @@ export default function Home() {
         </div>
         <div className="relative col-start-1 col-end-4 row-start-2 row-end-6 text-center">
           <div className="absolute bottom-full inset-x-0 m-auto text-white text-center">Tu zaczynamy:</div>
-          <Card className="absolute bottom-0 inset-x-0 h-full aspect-[5/4] bg-[url('https://wiki.openstreetmap.org/w/images/thumb/6/69/Baclaran_and_Pasay_Rotunda_-_in_Standard_map_layer.png/250px-Baclaran_and_Pasay_Rotunda_-_in_Standard_map_layer.png')] bg-cover bg-center m-auto"></Card>
+          <a href="https://maps.app.goo.gl/zwYAKSw6jk6Rsc4Z6"><Card className="absolute bottom-0 inset-x-0 h-full aspect-[5/4] bg-[url('/map.jpg')] bg-cover bg-center m-auto"/></a>
         </div>
         <div className="relative col-start-4 col-end-9 row-start-4 row-end-8">
           <Header nickname="&lt;Nickname&gt;"></Header>
