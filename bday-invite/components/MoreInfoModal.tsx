@@ -9,7 +9,7 @@ import {
     AlertDialogTrigger,
   } from "@/components/ui/alert-dialog"
 import { AlertDialogCancel } from "@radix-ui/react-alert-dialog"
-import { Clock11, FilePen, HeartHandshake, MessageSquareText, ScrollTextIcon, VolumeOff, XIcon } from "lucide-react"
+import { Clock11, FilePen, HeartHandshake, MessageSquareText, ScrollTextIcon, ShirtIcon, VolumeOff, XIcon } from "lucide-react"
 
 export function MoreInfoModal({children}:{children:React.ReactNode}) {
 return (
@@ -17,7 +17,7 @@ return (
     <AlertDialogTrigger asChild>
         {children}
     </AlertDialogTrigger>
-    <AlertDialogContent className="max-w-[50%] max-h-[90%]">
+    <AlertDialogContent className="max-w-[50%] max-h-[90%] overflow-x-hidden">
         <AlertDialogHeader className="overflow-x-hidden">
             <AlertDialogCancel><XIcon className="absolute right-3 top-3"/></AlertDialogCancel>
             <AlertDialogTitle className="max-h-[10%] inline-block">Dodatkowe informacje (wciąż ważne!):</AlertDialogTitle>
@@ -25,6 +25,8 @@ return (
                 <MessageSquareText className="inline h-4"/> Wiadomość od Jacka:<br/>
                 <span className="inline-block text-primary px-2 py-1 rounded-md bg-accent">Btw I'm a complete random
                 for some of you, so jak ktoś mnie nie zna to proszę się nie czuć wobec mnie zobowiązanym do żadnych prezentów ani nic</span><br/>
+                <span className="block mb-2"/>
+                <ShirtIcon className="inline h-4"/> Dress code: <span className="text-primary">Ubierzcie się tak, abyście czuli się komfortowo. Innymi słowy ubierzcie się w taki sposób, w jaki chcecie przyjąć naszego questa!</span><br/>
                 <span className="block mb-2"/>
                 <VolumeOff className="inline h-4"/> Cisza nocna: <span className="text-primary">Cisza nocna w lokalu trwa od 0:00 do 6:00.</span><br/>
                 <span className="block mb-2"/>
