@@ -97,10 +97,10 @@ function onSubmit(values: z.infer<typeof formSchema>) {
               </FormControl>
               <div className="space-y-1 leading-none">
                 <FormLabel>
-                  I'm gonna shoot them before they shoot me
+                  I&apos;m gonna shoot them before they shoot me
                 </FormLabel>
                 <FormDescription>
-                  (Czy bierzesz udział w grze w lasertag?a)
+                  (Czy bierzesz udział w grze w lasertaga?)
                 </FormDescription>
                 </div>
             </FormItem>
