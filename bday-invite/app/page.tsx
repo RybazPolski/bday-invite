@@ -14,11 +14,17 @@ export default function Home() {
   
 
   const programPointQuest = {
-    imageUrl: "/quest/01.jpg", title: "Quest", rv: "Alpha", time: "16:00", address: "Poznań, przystanek ", description: "", content: (<></>),
+    imageUrl: "/quest/01.jpg", title: "Quest", rv: "Alpha", time: "16:00", address: "Poznań, nad przystankiem Piaśnicka\uFEFF/\uFEFFKurlandzka", description: "", content: 
+    (<>
+      <i>&quot;Imiona i nazwiska: nieznane, zdjęcia: brak, cechy wyróżniające: nieznane, ostatnie lokalizacje: Oba cele przebywają ukryte wśród aktywnych w regionie NANZOP drużyn łowców nagród. Los chciał, by te drużyny szukały właśnie ich...&quot;</i>
+    </>),
   }
 
   const programPointLaserarena = {
-    imageUrl: "/laserarena/01.jpg", title: "Lasertag", rv: "Beta", time: "17:00", address: "Poznań, Fort IIa", description: "", content: (<></>),
+    imageUrl: "/laserarena/01.jpg", title: "Lasertag", rv: "Beta", time: "17:00", address: "Poznań, Fort IIa", description: "", content: 
+    (<>
+      Podzielimy się na dwie pary drużyn i zagramy dwie gry po ok. 30minut. Jeżeli się uda, wbijemy wcześniej, aby przejść szkolenie już przed 17:00 i nie tracić czasu gry ;)
+    </>),
   }
 
   const programPointPartyhouse = {
@@ -65,7 +71,7 @@ export default function Home() {
         </div>
         <div className="relative col-start-1 col-end-4 row-start-2 row-end-6 text-center">
           <div className="absolute bottom-full inset-x-0 m-auto text-white text-center">Tu zaczynamy:</div>
-          <a href="https://maps.app.goo.gl/zwYAKSw6jk6Rsc4Z6"><Card className="absolute bottom-0 inset-x-0 h-full aspect-[5/4] bg-[url('/map.jpg')] bg-cover bg-center m-auto"/></a>
+          <a target="_blank" href="https://maps.app.goo.gl/zwYAKSw6jk6Rsc4Z6"><Card className="absolute bottom-0 inset-x-0 h-full aspect-[5/4] bg-[url('/map.jpg')] bg-cover bg-center m-auto"/></a>
         </div>
         <div className="relative col-start-4 col-end-9 row-start-4 row-end-8">
           <Header nickname="&lt;Nickname&gt;"></Header>
