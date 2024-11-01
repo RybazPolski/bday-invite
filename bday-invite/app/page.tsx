@@ -8,6 +8,7 @@ import { Card } from "@/components/ui/card";
 import { PartyhouseModal } from "@/components/PartyhouseModal";
 import { BedIcon, CakeIcon,  DicesIcon, PizzaIcon, ShowerHeadIcon } from "lucide-react";
 import ExpandableProgramPoint from "@/components/ExpandableProgramCard";
+import { MoreInfoModal } from "@/components/MoreInfoModal";
 
 export default function Home() {
   
@@ -95,7 +96,9 @@ export default function Home() {
           <ConfirmSheet />
         </div>
         <div className="relative col-start-9 col-end-13 row-start-12 row-end-13 ">
-          <h1 className="text-center text-xl underline text-white ">&#9432; Więcej informacji</h1>
+          <MoreInfoModal>
+            <h1 className="text-center text-xl underline text-white cursor-pointer">&#9432; Więcej informacji</h1>
+          </MoreInfoModal>
         </div>
       </div>
     </>
