@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 import ProgramCard from "@/components/ProgramCard";
 import { Card } from "@/components/ui/card";
 import { PartyhouseModal } from "@/components/PartyhouseModal";
-import { BedDoubleIcon, BedIcon, CakeIcon, Dice1Icon, Dice5Icon, ForkKnifeIcon, PizzaIcon, ShowerHeadIcon } from "lucide-react";
+import { BedIcon, CakeIcon,  DicesIcon, PizzaIcon, ShowerHeadIcon } from "lucide-react";
 
 export default function Home() {
   
@@ -34,7 +34,7 @@ export default function Home() {
           </span>
         </div>
         <div className="flex items-center justify-center">
-          <Dice5Icon className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+          <DicesIcon className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
           <span className="text-neutral-700 dark:text-neutral-300 text-sm">
             Towarzyski wieczór z gierami
           </span>
