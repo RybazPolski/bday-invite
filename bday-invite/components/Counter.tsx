@@ -51,7 +51,7 @@ export default function Counter({date}:{date:Date}){
                     {(timeLeft?.days+"").replace('undefined','0')}d {("0"+timeLeft?.hrs).slice(-2).replace('ed','00')}h {("0"+timeLeft?.mins).slice(-2).replace('ed','00')}m {("0"+timeLeft?.secs).slice(-2).replace('ed','00')}s
                 </span>
             </div>
-            <div className="block mx-auto text-center text-2xl text-cyan-200 border-b-[8vh] border-b-stone-800 border-x-[25px] border-x-transparent h-0 w-8/12 rotate-180">
+            <div className="block mx-auto text-center text-xl text-cyan-200 border-b-[8vh] border-b-stone-800 border-x-[25px] border-x-transparent h-0 w-8/12 rotate-180">
                 <span className="absolute rotate-180 w-full text-center left-1/2 -translate-x-1/2 ">
                     {date.toLocaleDateString('pl-PL', {year: 'numeric',month: 'long',day: 'numeric',})}
                 </span>
