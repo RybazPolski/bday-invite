@@ -5,8 +5,55 @@ import DressCode from "@/components/DressCode";
 import Header from "@/components/Header";
 import ProgramCard from "@/components/ProgramCard";
 import { Card } from "@/components/ui/card";
+import { PartyhouseModal } from "@/components/PartyhouseModal";
+import { BedDoubleIcon, BedIcon, CakeIcon, Dice1Icon, Dice5Icon, ForkKnifeIcon, PizzaIcon, ShowerHeadIcon } from "lucide-react";
 
 export default function Home() {
+  
+
+  const programPointQuest = {
+    title: "Quest", rv: "Alpha", time: "16:00", address: "Poznań, przystanek ", description: (<></>),
+  }
+
+  const programPointLaserarena = {
+    title: "Lasertag", rv: "Beta", time: "17:00", address: "Poznań, Fort IIa", description: (<></>),
+  }
+
+  const programPointPartyhouse = {
+    title: "Lokal", rv: "Gamma", time: "18:45", address: "Poznań, ul. Za Bramką 12A", description: (<>
+      <div className="flex  items-center justify-center">
+        <CakeIcon className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+          <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+            Wszamanie torta
+          </span>
+        </div>
+        <div className="flex  items-center justify-center">
+          <PizzaIcon className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+          <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+            Pizza
+          </span>
+        </div>
+        <div className="flex items-center justify-center">
+          <Dice5Icon className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+          <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+            Towarzyski wieczór z gierami
+          </span>
+        </div>
+        <div className="flex items-center justify-center">
+          <BedIcon className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+          <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+            Nocleg
+          </span>
+        </div>
+        <div className="flex items-center justify-center">
+          <ShowerHeadIcon className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
+          <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+            Prysznice
+          </span>
+        </div>
+    </>),
+  }
+  
   return (
     <>    
       <BackgroundImage quest={undefined} team={undefined}/>
@@ -22,13 +69,15 @@ export default function Home() {
           <Header nickname="&lt;Nickname&gt;"></Header>
         </div>
         <div className="relative col-start-2 col-end-4 row-start-7 row-end-11">
-          <ProgramCard id="questThumb" rv="Alpha" title="Quest" imageUrl="/quest/01.jpg" time="16:00"/>
+          <ProgramCard imageUrl="/quest/01.jpg" programPoint={programPointQuest}/>
         </div>
         <div className="relative col-start-7 col-end-9 row-start-8 row-end-12">
-          <ProgramCard className="relative -top-3" id="laserarenaThumb" rv="Beta" title="Lasertag" imageUrl="/laserarena/01.jpg" time="17:00"/>
+          <ProgramCard className="relative -top-3" imageUrl="/laserarena/01.jpg" programPoint={programPointLaserarena}/>
         </div>
         <div className="relative col-start-10 col-end-12 row-start-2 row-end-6">
-          <ProgramCard className="relative -top-[4vh] left-[4vw]" id="partyhouseThumb" rv="Gamma" title="Lokal" imageUrl="/partyhouse/salon/01.jpg" time="18:45"/>
+        <PartyhouseModal triggerClassname="relative -top-[4vh] left-[4vw] aspect-square h-[30vh] px-0 py-0 overflow-visible" programPoint={programPointPartyhouse}>
+            <ProgramCard className="h-full" imageUrl="/partyhouse/salon/01.jpg" programPoint={programPointPartyhouse}/>
+          </PartyhouseModal>
         </div>
         <div className="relative col-start-1 col-end-7 row-start-12 row-end-13">
           <DressCode />
