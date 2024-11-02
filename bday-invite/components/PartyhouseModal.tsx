@@ -14,30 +14,37 @@ export function PartyhouseModal({children, triggerClassname, programPoint}:{chil
   
   const images = {
     kitchen: [
-        "/21.jpg",
-        "/22.jpg",
-        "/23.jpg",
+        "/kuchnia/21.jpg",
+        "/kuchnia/22.jpg",
+        "/kuchnia/23.jpg",
     ],
     toilets: [
-        "/14.jpg",
-        "/15.jpg",
-        "/18.jpg",
-        "/19.jpg",
-        "/20.jpg",
+        "/lazienki/14.jpg",
+        "/lazienki/15.jpg",
+        "/lazienki/18.jpg",
+        "/lazienki/19.jpg",
+        "/lazienki/20.jpg",
     ],
     bedrooms: [
-        "/13.jpg",
-        "/27.jpg",
-        "/29.jpg",
-        "/32.jpg",
-        "/34.jpg",
+        "/parter/13.jpg",
+        "/pietro/27.jpg",
+        "/pietro/29.jpg",
+        "/pietro/32.jpg",
+        "/pietro/34.jpg",
     ],
     couchRoom: [
-        "/01.jpg",
-        "/02.jpg",
-        "/03.jpg",
-        "/05.jpg",
-        "/06.jpg",
+        "/salon/01.jpg",
+        "/salon/02.jpg",
+        "/salon/03.jpg",
+        "/salon/05.jpg",
+        "/salon/06.jpg",
+    ],
+    selection: [
+      "/pietro/27.jpg",
+      "/kuchnia/22.jpg",
+      "/salon/04.jpg",
+      "/lazienki/16.jpg",
+      "/parter/13.jpg",
     ]
 }
 
@@ -54,7 +61,7 @@ export function PartyhouseModal({children, triggerClassname, programPoint}:{chil
             </h4>
             <h5 className="text-md text-neutral-600 dark:text-neutral-100 font-semibold text-center">{programPoint.address}, {programPoint.time}</h5>
             <div className="flex justify-center items-center">
-              {images.couchRoom.map((image, idx) => (
+              {images.selection.map((image, idx) => (
                 <motion.div
                   key={"images" + idx}
                   style={{
@@ -73,7 +80,7 @@ export function PartyhouseModal({children, triggerClassname, programPoint}:{chil
                   className="rounded-xl -mr-4 p-1 bg-white dark:bg-neutral-800 dark:border-neutral-700 border border-neutral-100 flex-shrink-0 overflow-hidden"
                 >
                   <Image
-                    src={"/partyhouse/salon"+image}
+                    src={"/partyhouse"+image}
                     alt="bali images"
                     width="500"
                     height="500"
