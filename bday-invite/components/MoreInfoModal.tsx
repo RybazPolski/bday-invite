@@ -15,11 +15,11 @@ return (
     <AlertDialogTrigger asChild>
         {children}
     </AlertDialogTrigger>
-    <AlertDialogContent className="max-w-[50%] max-h-[90%] overflow-x-hidden">
-        <AlertDialogHeader className="overflow-x-hidden">
+    <AlertDialogContent className="max-w-[50%] max-h-[90%] overflow-scroll">
+        <AlertDialogHeader>
             <AlertDialogCancel><XIcon className="absolute right-3 top-3"/></AlertDialogCancel>
             <AlertDialogTitle className="max-h-[10%] inline-block">Dodatkowe informacje (wciąż ważne!):</AlertDialogTitle>
-            <AlertDialogDescription className="inline-block overflow-scroll max-h-[50%]">
+            <AlertDialogDescription className="inline-block max-h-[50%]">
                 <MessageSquareText className="inline h-4"/> Wiadomość od Jacka:<br/>
                 <span className="inline-block text-primary px-2 py-1 rounded-md bg-accent">Btw I&apos;m a complete random
                 for some of you, so jak ktoś mnie nie zna to proszę się nie czuć wobec mnie zobowiązanym do żadnych prezentów ani nic</span><br/>
