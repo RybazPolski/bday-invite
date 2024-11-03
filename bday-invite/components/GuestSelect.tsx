@@ -9,7 +9,8 @@ async function getGuests() {
         headers: {
             "Accept": "application/json",
             "Content-Type": "application/json",
-        }
+        },
+        cache: 'no-store'
     });
     const data = await res.then(e=>{return e.json()})
     // console.log(data)
