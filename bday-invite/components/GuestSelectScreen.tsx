@@ -27,7 +27,7 @@ export default function GuestSelectScreen({options}:{options:Array<{value:Guest,
 
   //refresh cookies nickname
   if(isGuestSet()){
-    let team = options.find(
+    const team = options.find(
       (option) => option.value.nickname == getCookie("nickname")
     )?.value?.team
     if(team=="lime"||team=="orange") setCookie("team",team); else deleteCookie("team")
