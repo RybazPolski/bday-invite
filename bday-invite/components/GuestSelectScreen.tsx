@@ -18,11 +18,21 @@ const UserSelectFormSchema = z.object({
   guest: GuestScheme
 })
 
+
 const isGuestSet = ()=>{
   return getCookie("nickname")!=undefined
 }
 
 export default function GuestSelectScreen({options}:{options:Array<{value:Guest,label:string}>}){
+
+  //refresh cookies nickname
+  if(isGuestSet()){
+    let team = options.find(
+      (option) => option.value.nickname == getCookie("nickname")
+    )?.value?.team
+    if(team=="lime"||team=="orange") setCookie("team",team); else deleteCookie("team")
+  }
+
   return(
     <>
     <div className={`fixed inset-0 z-500 w-[100dvw] h-[100dvh] bg-black bg-opacity-90 ${isGuestSet()?"":"hidden"}`}>
