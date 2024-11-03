@@ -12,7 +12,7 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 export function ConfirmSheet() {
     return (
     <Sheet>
-      <SheetTrigger asChild>
+      <SheetTrigger>
         <ConfirmButton />
       </SheetTrigger>
       <SheetContent>
