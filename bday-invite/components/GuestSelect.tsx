@@ -12,7 +12,7 @@ async function getGuests() {
         }
     });
     const data = await res.then(e=>{return e.json()})
-    console.log(data)
+    // console.log(data)
     return data
 }
 
