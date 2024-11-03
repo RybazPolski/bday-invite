@@ -1,7 +1,7 @@
 import { Guest } from "@/model/Guest";
 import GuestSelectScreen from "@/components/GuestSelectScreen";
 
-const URL = process.env.VERCEL_URL? "https://"+process.env.VERCEL_URL : "http://localhost:3000"
+const URL = process.env.NEXT_PUBLIC_API_URL? "https://"+process.env.NEXT_PUBLIC_API_URL : "http://localhost:3000"
 
 async function getGuests() {
     const res = fetch(URL+"/api/guests", {
