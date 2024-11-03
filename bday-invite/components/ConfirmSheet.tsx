@@ -9,7 +9,7 @@ import ConfirmButton from "@/components/ConfirmButton"
 import ConfirmForm from "@/components/ConfirmForm"
 import { ScrollArea } from "@/components/ui/scroll-area"
 
-export function ConfirmSheet({nickaname}:{nickaname:string|undefined}) {
+export function ConfirmSheet() {
 
     return (
     <Sheet>

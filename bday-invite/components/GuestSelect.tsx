@@ -17,20 +17,6 @@ async function getGuests() {
     return data
 }
 
-async function getDeclaration(nickname:string) {
-    const res = fetch(URL+"/api/declarations/"+nickname, {
-        method: "GET",
-        headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json",
-        },
-        cache: 'no-store'
-    });
-    const data = await res.then(e=>{return e.json()})
-    // console.log(data)
-    return data
-}
-
 export default async function GuestSelect() {
     const guests = await getGuests().then(e=>{return e})
     const guestOptions = guests.map((e:Guest)=>{

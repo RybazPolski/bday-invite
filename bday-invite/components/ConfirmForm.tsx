@@ -17,10 +17,9 @@ import {
 import { Input } from "@/components/ui/input"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Textarea } from "@/components/ui/textarea"
-import { getCookie, setCookie } from "cookies-next"
+import { getCookie } from "cookies-next"
 import { DeclarationSchema } from "@/model/Declaration"
 import { useState } from "react"
-import { Declaration } from "postcss"
 
 export const formSchema = DeclarationSchema.partial({
     id : true,
@@ -29,7 +28,7 @@ export const formSchema = DeclarationSchema.partial({
     inviteAccepted : true,
 })
 
-export default function ConfirmForm({defaultDeclaration}:{defaultDeclaration?:Declaration|undefined}) {
+export default function ConfirmForm() {
 
   const [inviteAccepted, setInviteAccepted] = useState<boolean>();
   
