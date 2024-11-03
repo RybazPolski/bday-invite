@@ -4,7 +4,7 @@ import { z } from "zod"
 
 export const DeclarationSchema = z.object({
     id : z.number(),
-    guestId : z.number(),
+    guestNickname : z.string(),
     declarationDatetime : z.date().default(new Date(Date.now())), 
     inviteAccepted : z.boolean(),
     questAccepted : z.boolean(),

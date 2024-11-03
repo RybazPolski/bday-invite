@@ -9,7 +9,8 @@ import ConfirmButton from "@/components/ConfirmButton"
 import ConfirmForm from "@/components/ConfirmForm"
 import { ScrollArea } from "@/components/ui/scroll-area"
 
-export function ConfirmSheet() {
+export function ConfirmSheet({nickaname}:{nickaname:string|undefined}) {
+
     return (
     <Sheet>
       <SheetTrigger>
@@ -20,7 +21,7 @@ export function ConfirmSheet() {
           <SheetTitle>Potwierdź obecność:</SheetTitle>
         </SheetHeader>
         <ScrollArea className="h-full">
-          <ConfirmForm />
+          <ConfirmForm/>
         </ScrollArea>
       </SheetContent>
     </Sheet>
