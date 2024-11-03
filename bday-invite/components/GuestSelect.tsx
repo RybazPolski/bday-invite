@@ -1,10 +1,10 @@
 import { Guest } from "@/model/Guest";
 import GuestSelectScreen from "@/components/GuestSelectScreen";
 
-const APP_URL = process.env.VERCEL_URL || "localhost:3000"
+const URL = process.env.VERCEL_URL? "https://"+process.env.VERCEL_URL : "http://localhost:3000"
 
 async function getGuests() {
-    const res = fetch(`http://${APP_URL}/api/guests`, {
+    const res = fetch(URL+"/api/guests", {
         method: "GET",
         headers: {
             "Accept": "application/json",
