@@ -13,6 +13,7 @@ import {Popover,PopoverContent,PopoverTrigger,} from "@/components/ui/popover"
 import { Guest, GuestScheme } from "@/model/Guest"
 import { deleteCookie, getCookie, setCookie } from "cookies-next"
 import { AlertDialog, AlertDialogContent, AlertDialogTitle } from "@/components/ui/alert-dialog"
+import { Declaration } from "@/model/Declaration"
 
 const UserSelectFormSchema = z.object({
   guest: GuestScheme
@@ -23,7 +24,7 @@ const isGuestSet = ()=>{
   return getCookie("nickname")!=undefined
 }
 
-export default function GuestSelectScreen({options}:{options:Array<{value:Guest,label:string}>}){
+export default function GuestSelectScreen({options, declarations}:{options:Array<{value:Guest,label:string}>, declarations:Array<Declaration>}){
 
   //refresh cookies nickname
   if(isGuestSet()){
@@ -31,6 +32,13 @@ export default function GuestSelectScreen({options}:{options:Array<{value:Guest,
       (option) => option.value.nickname == getCookie("nickname")
     )?.value?.team
     if(team=="lime"||team=="orange") setCookie("team",team); else deleteCookie("team")
+    //YEAH.... It is a shitty way to do that, but I just want it to work for now. I hope I'll find motivation to fix it some time.
+    if(declarations!==undefined){
+      const declaration = declarations.find(
+        (option) => option.guestNickname == getCookie("nickname")
+      )
+      if(declaration!=undefined && declaration!=null) setCookie("declaration",declaration); else deleteCookie("declaration")  
+    }
   }
 
   return(

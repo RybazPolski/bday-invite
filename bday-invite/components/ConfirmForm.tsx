@@ -18,7 +18,7 @@ import { Input } from "@/components/ui/input"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Textarea } from "@/components/ui/textarea"
 import { getCookie } from "cookies-next"
-import { DeclarationSchema } from "@/model/Declaration"
+import { Declaration, DeclarationSchema } from "@/model/Declaration"
 import { useState } from "react"
 
 export const formSchema = DeclarationSchema.partial({
@@ -28,23 +28,22 @@ export const formSchema = DeclarationSchema.partial({
     inviteAccepted : true,
 })
 
-export default function ConfirmForm() {
+export default function ConfirmForm({declaration}:{declaration:Declaration|undefined}) {
 
   const [inviteAccepted, setInviteAccepted] = useState<boolean>();
   
   function acceptInvite(){
     setInviteAccepted(true)
   } 
-  function rejectInvite(){
-    setInviteAccepted(false)
-  }
+  // function rejectInvite(){
+  //   setInviteAccepted(false)
+  // }
 
   const form = useForm<z.infer<typeof formSchema>>({
   resolver: zodResolver(formSchema),
-  // TODO: here it takes cookies, but something should feed them I guess.
   defaultValues:
-    getCookie("declaration")!=undefined ? 
-    JSON.parse(getCookie("declaration") as string) 
+    declaration!==undefined ? 
+    declaration 
     : 
     {
       guestNickname: getCookie("nickname"),
@@ -59,7 +58,6 @@ export default function ConfirmForm() {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     values.inviteAccepted = inviteAccepted
-    // console.log(values)
     // TODO: replace with server action from seperate file I guess? And do it better.
     fetch("/api/declarations",{
       method: 'POST',
@@ -70,7 +68,11 @@ export default function ConfirmForm() {
       body: JSON.stringify(values)
     }).then(res=>{
       if(res.status==201){
+        window.location.reload()
         // TODO: toast or sth in future
+      }else{
+        console.log("Something went wrong")
+        console.log(res)
       }
     })
   }
@@ -99,6 +101,7 @@ export default function ConfirmForm() {
             <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
               <FormControl>
                 <Checkbox
+                  disabled={declaration!==undefined}
                   checked={field.value}
                   onCheckedChange={field.onChange}
                   />
@@ -121,6 +124,7 @@ export default function ConfirmForm() {
             <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
               <FormControl>
                 <Checkbox
+                  disabled={declaration!==undefined}
                   checked={field.value}
                   onCheckedChange={field.onChange}
                   />
@@ -144,6 +148,7 @@ export default function ConfirmForm() {
             <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
               <FormControl>
                 <Checkbox
+                  disabled={declaration!==undefined}
                   checked={field.value}
                   onCheckedChange={field.onChange}
                 />
@@ -163,6 +168,7 @@ export default function ConfirmForm() {
             <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
               <FormControl>
                 <Checkbox
+                  disabled={declaration!==undefined}
                   checked={field.value}
                   onCheckedChange={field.onChange}
                 />
@@ -187,6 +193,7 @@ export default function ConfirmForm() {
             </FormDescription>
             <FormControl>
               <Textarea
+                disabled={declaration!==undefined}
                 placeholder="Np. krótką gierkę bitewną &quot;Warhammer 40k&quot;, albo jajka koguta."
                 className="resize-none"
                 {...field}
@@ -208,6 +215,7 @@ export default function ConfirmForm() {
             </FormDescription>
             <FormControl>
               <Textarea
+                disabled={declaration!==undefined}
                 placeholder="Np. mam uczulenie na bezgluten."
                 className="resize-none"
                 {...field}
@@ -217,8 +225,8 @@ export default function ConfirmForm() {
           </FormItem>
           )}
         />
-        <Button type="submit" onClick={acceptInvite}>Potwierdź</Button>
-        <Button variant="destructive" type="submit" onClick={rejectInvite}>Odrzuć</Button>
+        <Button type="submit" onClick={acceptInvite} disabled={declaration!==undefined}>Potwierdź</Button>
+        {/* <Button variant="destructive" type="submit" onClick={rejectInvite}>Odrzuć</Button> */}
       </form>
     </Form>
   )
