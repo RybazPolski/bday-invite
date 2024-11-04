@@ -3,7 +3,7 @@ import { sql } from '@vercel/postgres';
 
 export async function GET() {
   try {
-    const { rows } = await sql`SELECT * FROM guests;`
+    const { rows } = await sql`SELECT * FROM guests ORDER BY nickname ASC;`
 
     return NextResponse.json(rows);
   } catch(error){
