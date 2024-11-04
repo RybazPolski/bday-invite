@@ -17,33 +17,65 @@ import {
 import { Input } from "@/components/ui/input"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Textarea } from "@/components/ui/textarea"
+import { getCookie } from "cookies-next"
+import { Declaration, DeclarationSchema } from "@/model/Declaration"
+import { useState } from "react"
 
-export const formSchema = z.object({
-  id : z.number(),
-  guestId : z.number(),
-  guestNickname : z.string(),
-  //inviteAccepted : z.boolean(),
-  questAccepted : z.boolean(),
-  lasertagAccepted : z.boolean(),
-  overnight : z.boolean(),
-  alkomohol : z.boolean(),
-  bringIns : z.string().optional(),
-  notes : z.string().optional(),
-});
-
-export default function ConfirmForm() {
-
- const form = useForm<z.infer<typeof formSchema>>({
-  resolver: zodResolver(formSchema),
-  defaultValues: {
-    
-  },
+export const formSchema = DeclarationSchema.partial({
+    id : true,
+    guestNickname : true,
+    declarationDatetime : true, 
+    inviteAccepted : true,
 })
 
-function onSubmit(values: z.infer<typeof formSchema>) {
-  // TODO: Do something with the form values.
-  console.log(values)
-}
+export default function ConfirmForm({declaration}:{declaration:Declaration|undefined}) {
+
+  const [inviteAccepted, setInviteAccepted] = useState<boolean>();
+  
+  function acceptInvite(){
+    setInviteAccepted(true)
+  } 
+  // function rejectInvite(){
+  //   setInviteAccepted(false)
+  // }
+
+  const form = useForm<z.infer<typeof formSchema>>({
+  resolver: zodResolver(formSchema),
+  defaultValues:
+    declaration!==undefined ? 
+    declaration 
+    : 
+    {
+      guestNickname: getCookie("nickname"),
+      inviteAccepted: true,
+      declarationDatetime: new Date("01-01-1970 00:00"),
+      questAccepted: false,
+      lasertagAccepted: false,
+      overnight: false,
+      alkomohol: false,
+    },
+  })
+
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    values.inviteAccepted = inviteAccepted
+    // TODO: replace with server action from seperate file I guess? And do it better.
+    fetch("/api/declarations",{
+      method: 'POST',
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(values)
+    }).then(res=>{
+      if(res.status==201){
+        window.location.reload()
+        // TODO: toast or sth in future
+      }else{
+        console.log("Something went wrong")
+        console.log(res)
+      }
+    })
+  }
 
   return (
     <Form {...form}>
@@ -56,7 +88,7 @@ function onSubmit(values: z.infer<typeof formSchema>) {
             <FormItem>
               <FormLabel>Nickname</FormLabel>
               <FormControl>
-                <Input disabled placeholder={"<Nickname>"} {...field} />
+                <Input disabled placeholder={"<Nickname>"} defaultValue={getCookie("nickname")} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -69,6 +101,7 @@ function onSubmit(values: z.infer<typeof formSchema>) {
             <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
               <FormControl>
                 <Checkbox
+                  disabled={declaration!==undefined}
                   checked={field.value}
                   onCheckedChange={field.onChange}
                   />
@@ -91,6 +124,7 @@ function onSubmit(values: z.infer<typeof formSchema>) {
             <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
               <FormControl>
                 <Checkbox
+                  disabled={declaration!==undefined}
                   checked={field.value}
                   onCheckedChange={field.onChange}
                   />
@@ -114,6 +148,7 @@ function onSubmit(values: z.infer<typeof formSchema>) {
             <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
               <FormControl>
                 <Checkbox
+                  disabled={declaration!==undefined}
                   checked={field.value}
                   onCheckedChange={field.onChange}
                 />
@@ -133,6 +168,7 @@ function onSubmit(values: z.infer<typeof formSchema>) {
             <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
               <FormControl>
                 <Checkbox
+                  disabled={declaration!==undefined}
                   checked={field.value}
                   onCheckedChange={field.onChange}
                 />
@@ -157,6 +193,7 @@ function onSubmit(values: z.infer<typeof formSchema>) {
             </FormDescription>
             <FormControl>
               <Textarea
+                disabled={declaration!==undefined}
                 placeholder="Np. krótką gierkę bitewną &quot;Warhammer 40k&quot;, albo jajka koguta."
                 className="resize-none"
                 {...field}
@@ -178,6 +215,7 @@ function onSubmit(values: z.infer<typeof formSchema>) {
             </FormDescription>
             <FormControl>
               <Textarea
+                disabled={declaration!==undefined}
                 placeholder="Np. mam uczulenie na bezgluten."
                 className="resize-none"
                 {...field}
@@ -187,8 +225,8 @@ function onSubmit(values: z.infer<typeof formSchema>) {
           </FormItem>
           )}
         />
-        <Button type="submit">Potwierdź</Button>
-        {/* <Button variant="destructive">Odrzuć</Button> */}
+        <Button type="submit" onClick={acceptInvite} disabled={declaration!==undefined}>Potwierdź</Button>
+        {/* <Button variant="destructive" type="submit" onClick={rejectInvite}>Odrzuć</Button> */}
       </form>
     </Form>
   )

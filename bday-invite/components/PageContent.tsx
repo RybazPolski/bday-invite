@@ -14,15 +14,31 @@ import { MoreInfoModal } from "@/components/MoreInfoModal";
 import { useEffect, useState } from "react";
 import { Guest } from "@/model/Guest";
 import { getCookie } from "cookies-next";
+import { Declaration, DeclarationSchema } from "@/model/Declaration";
 
 export default function PageContent(){
     
     const [guest, setGuest] = useState<Guest>()
+    const [declaration, setDeclaration] = useState<Declaration | undefined>()
     
     useEffect(() => {
       setGuest({
         nickname: getCookie("nickname") as string,
         team: getCookie("team") ? getCookie("team") as "lime"|"orange" : null
+      })
+      setDeclaration(()=>{
+        try{
+          const dec = getCookie("declaration")!==undefined ? JSON.parse(getCookie("declaration") as string) : {};
+          console.log(dec)
+          dec.declarationDateTime = new Date(dec.declarationDateTime)
+          dec.bringIns = dec.bringIns == null ? undefined : dec.bringIns
+          dec.notes = dec.notes == null ? undefined : dec.notes
+          if(dec) DeclarationSchema.parse(dec);
+          return dec
+        }catch(err){
+          console.log(err)
+          return undefined          
+        }
       })
     }, []);
 
@@ -77,7 +93,7 @@ export default function PageContent(){
 
     return (<>
 
-        <BackgroundImage quest="accepted" team={guest?.team}/>
+        <BackgroundImage quest={declaration==undefined? undefined: declaration.questAccepted ? "accepted" : "denied" } team={guest?.team}/>
         <div className="grid grid-rows-12 grid-cols-12 h-[100dvh] w-[100vw] z-0">
             <div className="relative col-start-4 col-end-10 row-span-3">
                 <Counter date={new Date("2024-11-09 16:00")}/>
@@ -112,7 +128,7 @@ export default function PageContent(){
           {/* <h1 className="text-center text-3xl">Jubilarians</h1> */}
         </div>
         <div className="relative col-start-9 col-end-13 row-start-10 row-end-12 inline-flex justify-end">
-          <ConfirmSheet />
+          <ConfirmSheet declaration={declaration}/>
         </div>
         <div className="relative col-start-9 col-end-13 row-start-12 row-end-13 ">
           <MoreInfoModal>

@@ -15,22 +15,22 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const body = await request.json(); // Parse JSON from request body
-    const { guestnickname, inviteaccepted, questaccepted, lasertagaccepted, overnight, alkomohol, bringins, notes } = body;
+    const { guestNickname, inviteAccepted, questAccepted, lasertagAccepted, overnight, alkomohol, bringins, notes } = body;
 
-    // console.log("nick", guestnickname);
-    // console.log("invite", inviteaccepted);
-    // console.log("quest", questaccepted);
-    // console.log("laser", lasertagaccepted);
+    // console.log("nick", guestNickname);
+    // console.log("invite", inviteAccepted);
+    // console.log("quest", questAccepted);
+    // console.log("laser", lasertagAccepted);
     // console.log("overnight", overnight);
     // console.log("alkomohol", alkomohol);
     // console.log("bringins", bringins);
     // console.log("notes", notes);
 
     if (
-        guestnickname === undefined || guestnickname === null ||
-        inviteaccepted === undefined || inviteaccepted === null ||
-        questaccepted === undefined || questaccepted === null ||
-        lasertagaccepted === undefined || lasertagaccepted === null ||
+        guestNickname === undefined || guestNickname === null ||
+        inviteAccepted === undefined || inviteAccepted === null ||
+        questAccepted === undefined || questAccepted === null ||
+        lasertagAccepted === undefined || lasertagAccepted === null ||
         overnight === undefined || overnight === null ||
         alkomohol === undefined || alkomohol === null
       ) {
@@ -39,7 +39,7 @@ export async function POST(request: Request) {
 
     const { rows } = await sql`
       INSERT INTO declarations (guestnickname, inviteaccepted, questaccepted, lasertagaccepted, overnight, alkomohol, bringins, notes)
-      VALUES (${guestnickname}, ${inviteaccepted}, ${questaccepted}, ${lasertagaccepted}, ${overnight}, ${alkomohol}, ${bringins || null}, ${notes || null})
+      VALUES (${guestNickname}, ${inviteAccepted}, ${questAccepted}, ${lasertagAccepted}, ${overnight}, ${alkomohol}, ${bringins || null}, ${notes || null})
       RETURNING *;
     `;
 
