@@ -11,8 +11,8 @@ export const DeclarationSchema = z.object({
     lasertagAccepted : z.boolean(),
     overnight : z.boolean(),
     alkomohol : z.boolean(),
-    bringIns : z.string().optional().nullable(),
-    notes : z.string().optional().nullable(),
+    bringIns : z.string().optional(),
+    notes : z.string().optional(),
 });
 
 export type Declaration = z.infer<typeof DeclarationSchema>;

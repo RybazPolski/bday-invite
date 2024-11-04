@@ -31,6 +31,8 @@ export default function PageContent(){
           const dec = getCookie("declaration")!==undefined ? JSON.parse(getCookie("declaration") as string) : {};
           console.log(dec)
           dec.declarationDateTime = new Date(dec.declarationDateTime)
+          dec.bringIns = dec.bringIns == null ? undefined : dec.bringIns
+          dec.notes = dec.notes == null ? undefined : dec.notes
           if(dec) DeclarationSchema.parse(dec);
           return dec
         }catch(err){
