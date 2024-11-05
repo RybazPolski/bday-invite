@@ -15,7 +15,7 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const body = await request.json(); // Parse JSON from request body
-    const { guestNickname, inviteAccepted, questAccepted, lasertagAccepted, overnight, alkomohol, bringins, notes } = body;
+    const { guestNickname, inviteAccepted, questAccepted, lasertagAccepted, overnight, alkomohol, bringIns, notes } = body;
 
     // console.log("nick", guestNickname);
     // console.log("invite", inviteAccepted);
@@ -39,7 +39,7 @@ export async function POST(request: Request) {
 
     const { rows } = await sql`
       INSERT INTO declarations (guestnickname, inviteaccepted, questaccepted, lasertagaccepted, overnight, alkomohol, bringins, notes)
-      VALUES (${guestNickname}, ${inviteAccepted}, ${questAccepted}, ${lasertagAccepted}, ${overnight}, ${alkomohol}, ${bringins || null}, ${notes || null})
+      VALUES (${guestNickname}, ${inviteAccepted}, ${questAccepted}, ${lasertagAccepted}, ${overnight}, ${alkomohol}, ${bringIns || null}, ${notes || null})
       RETURNING *;
     `;
 
@@ -49,3 +49,4 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Failed to add declaration' }, { status: 500 });
   }
 }
+

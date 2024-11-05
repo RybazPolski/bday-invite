@@ -58,23 +58,45 @@ export default function ConfirmForm({declaration}:{declaration:Declaration|undef
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     values.inviteAccepted = inviteAccepted
+    
     // TODO: replace with server action from seperate file I guess? And do it better.
-    fetch("/api/declarations",{
-      method: 'POST',
-      headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(values)
-    }).then(res=>{
-      if(res.status==201){
-        window.location.reload()
-        // TODO: toast or sth in future
-      }else{
-        console.log("Something went wrong")
-        console.log(res)
-      }
-    })
+    if((declaration?.bringIns==undefined && declaration!==undefined)){
+      console.log(declaration)
+      fetch("/api/declarations/"+values.guestNickname+"/bringInsFix",{
+        method: 'PUT',
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({bringIns: values.bringIns})
+      }).then(res=>{
+        if(res.status==200){
+          window.location.reload()
+          // TODO: toast or sth in future
+        }else{
+          console.log("Something went wrong")
+          console.log(res)
+        }
+        return
+      })
+    }else{
+      fetch("/api/declarations",{
+        method: 'POST',
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values)
+      }).then(res=>{
+        if(res.status==201){
+          window.location.reload()
+          // TODO: toast or sth in future
+        }else{
+          console.log("Something went wrong")
+          console.log(res)
+        }
+      })
+    }
   }
 
   return (
@@ -193,7 +215,7 @@ export default function ConfirmForm({declaration}:{declaration:Declaration|undef
             </FormDescription>
             <FormControl>
               <Textarea
-                disabled={declaration!==undefined}
+                disabled={declaration?.bringIns!==undefined}
                 placeholder="Np. krótką gierkę bitewną &quot;Warhammer 40k&quot;, albo jajka koguta."
                 className="resize-none"
                 {...field}
@@ -225,7 +247,7 @@ export default function ConfirmForm({declaration}:{declaration:Declaration|undef
           </FormItem>
           )}
         />
-        <Button type="submit" onClick={acceptInvite} disabled={declaration!==undefined}>Potwierdź</Button>
+        <Button type="submit" onClick={acceptInvite} disabled={declaration!==undefined && declaration.bringIns!==undefined}>Potwierdź</Button>
         {/* <Button variant="destructive" type="submit" onClick={rejectInvite}>Odrzuć</Button> */}
       </form>
     </Form>
