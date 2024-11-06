@@ -50,9 +50,9 @@ export default function PageContent(){
       }
     
       const programPointLaserarena = {
-        imageUrl: "/laserarena/01.jpg", title: "Lasertag", rv: "Beta", time: "17:00", address: "Poznań, Fort IIa", description: "", content: 
+        imageUrl: "/laserarena/01.jpg", title: "Lasertag", rv: "Beta", time: "16:45", address: "Poznań, Fort IIa", description: "", content: 
         (<>
-          Podzielimy się na dwie pary drużyn i zagramy dwie gry po ok. 30minut. Jeżeli się uda, wbijemy wcześniej, aby przejść szkolenie już przed 17:00 i nie tracić czasu gry ;)
+          Grę zaczynamy o 17:00, ale wolę Wam wskazać z zapasem godzinę 16:45. Podzielimy się na dwie pary drużyn i zagramy dwie gry po ok. 30minut. Skoro będziemy na miejscu wcześniej, to jeżeli się uda, wbijemy wcześniej, aby przejść szkolenie już przed 17:00 i nie tracić czasu gry ;)
         </>),
       }
     
