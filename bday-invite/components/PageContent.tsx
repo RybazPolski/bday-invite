@@ -57,7 +57,7 @@ export default function PageContent(){
       }
     
       const programPointPartyhouse = {
-        imageUrl: "/partyhouse/salon/01.jpg", title: "Lokal", rv: "Gamma", time: "18:45", address: "Poznań, ul. Za Bramką 12A", description:  "", content: (<>
+        imageUrl: "/partyhouse/salon/01.jpg", title: "Lokal", rv: "Gamma", time: "19:15", address: "Poznań, ul. Za Bramką 12A", description:  "", content: (<>
           <div className="flex  items-center justify-center">
             <CakeIcon className="mr-1 text-neutral-700 dark:text-neutral-300 h-4 w-4" />
               <span className="text-neutral-700 dark:text-neutral-300 text-sm">
